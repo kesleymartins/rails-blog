@@ -1,2 +1,5 @@
-<p class="alert alert-danger"><%= notice %></p>
-<p class="alert alert-warning"><%= alert %></p>
+<% if notice %>
+    <p class="alert alert-danger"><%= notice %></p>
+<% elsif alert %>
+    <p class="alert alert-warning"><%= alert %></p>
+<% end %>
