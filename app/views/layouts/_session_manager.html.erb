@@ -1,7 +1,7 @@
 <% if current_user %>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User functions
+            <%= current_user.name %>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><%= link_to 'New Post', new_post_path, class: 'dropdown-item' %></li>
