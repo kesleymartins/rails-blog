@@ -3,9 +3,8 @@
     <strong>Title:</strong>
     <%= post.title %>
   </p>
-  <p>
-    <%= pluralize(post.views, 'view')%>
-  </p>
+  <h5>Created by: <%= post.user.email %></h5>
+  <p><%= pluralize(post.views, 'view')%></p>
   <p>
     <strong>Body:</strong>
     <%= post.body %>
