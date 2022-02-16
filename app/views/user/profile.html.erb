@@ -1,2 +1,2 @@
-<h1>User#profile</h1>
-<p>Find me in app/views/user/profile.html.erb</p>
+<h1><%= @user.name&.capitalize %></h1>
+<h6><%= pluralize(@user.views, "view") %></h6>
