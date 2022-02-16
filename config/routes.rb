@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'user/profile'
+  root 'pages#home'
+
+  get 'user/:id', to: 'user#profile', as: 'user'
+  get 'about', to: 'pages#about'
+
+  resources :posts
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-
-  resources :posts
-  root 'pages#home'
-
-  get 'about', to: 'pages#about'
 end
