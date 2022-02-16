@@ -3,7 +3,7 @@
     <strong>Title:</strong>
     <%= post.title %>
   </p>
-  <h5>Created by: <%= post.user.email %></h5>
+  <h5>Created by: <%= link_to post.user.name, user_path(post.user.id) %></h5>
   <p><%= pluralize(post.views, 'view')%></p>
   <p>
     <strong>Body:</strong>
