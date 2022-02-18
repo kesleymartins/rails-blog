@@ -1,13 +1,10 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
-  <h5>Created by: <%= link_to post.user.name, user_path(post.user.id) %></h5>
-  <p><%= pluralize(post.views, 'view')%></p>
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      created by: <%= link_to post.user.name, user_path(post.user.id) %>
+      <p><%= pluralize(post.views, 'view')%></p>
+    </h6>
+    <p class="card-text"><%= post.body %></p>
+  </div>
 </div>
