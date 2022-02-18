@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card my-2">
   <div class="card-body">
     <h5 class="card-title"><%= post.title %></h5>
     <h6 class="card-subtitle mb-2 text-muted">
@@ -6,5 +6,7 @@
       <p><%= pluralize(post.views, 'view')%></p>
     </h6>
     <p class="card-text"><%= post.body %></p>
+    
+    <%= render 'posts/post_actions', post: post %>
   </div>
 </div>
