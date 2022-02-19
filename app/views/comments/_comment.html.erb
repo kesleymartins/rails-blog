@@ -1,13 +1,13 @@
-<div class="comment-<%= comment.id %> container border border-dark my-2 p-3">
-    <%= comment.user.email%>
-    <span>Posted <%= time_ago_in_words(comment.created_at) %></span>
+<div class="comment-<%= comment.id %> border my-2 p-3">
+    <h5><%= comment.user.email%></h5>
+    <small>Posted <%= time_ago_in_words(comment.created_at) %></small>
 
     <% if current_user == comment.user %>
         <div class="button-group float-end">
-            <%= button_to "delete", [post, comment], class: "btn btn-danger", method: :delete %>
+            <%= button_to "delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
         </div>
     <% end %>
-    
+
     <hr />
-    <%= comment.body%>
+    <p><%= comment.body%></p>
 </div>
