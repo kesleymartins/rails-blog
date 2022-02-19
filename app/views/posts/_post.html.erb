@@ -1,12 +1,16 @@
 <div class="card my-2">
+  <h5 class="card-header text-center">
+    <%= post.title %>
+  </h5>
   <div class="card-body">
-    <h5 class="card-title"><%= post.title %></h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-      created by: <%= link_to post.user.name, user_path(post.user.id) %>
-      <p><%= pluralize(post.views, 'view')%></p>
+    <h6 class="card-title">
+        <small>created by: <%= link_to post.user.name, user_path(post.user.id) %></small><br />
+        <small><%= pluralize(post.views, 'view')%></small>
     </h6>
-    <p class="card-text"><%= post.body %></p>
-    
+    <hr />
+    <p class="card-text">
+      <%= post.body %>
+    </p>
     <%= render 'posts/post_actions', post: post %>
   </div>
 </div>
