@@ -1,16 +1,17 @@
-<div class="comment-<%= comment.id %> border my-2 p-3">
-    <h4><%= comment.user.name%></h4>
-    <p>
+<div class="card my-2" style="width: 80%">
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.user.name%></h5>
+    <h6 class="card-subtitle mb-2 text-muted">
         <small><%= comment.user.email%></small> <br />
         <small>Posted <%= time_ago_in_words(comment.created_at) %></small>
-    </p>
+    </h6>
+    <hr />
+    <p class="card-text"><%= comment.body%></p>
 
     <% if current_user == comment.user %>
         <div class="button-group float-end">
             <%= button_to "delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
         </div>
     <% end %>
-
-    <hr />
-    <p><%= comment.body%></p>
+  </div>
 </div>
