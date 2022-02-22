@@ -1,7 +1,22 @@
 <%= render @post %>
 
+<div class="mt-5">
+  <h4>Comments</h4>
+  <hr />
+</div>
+
 <div class="container">
-  <%= render 'comments/form', post: @post %>
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Make a comment?
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <%= render 'comments/form', post: @post %>
+    </div>
+  </div>
+
   <% @comments.each do |comment| %>
     <%= render 'comments/comment', post: @post, comment: comment%>
   <% end %>
