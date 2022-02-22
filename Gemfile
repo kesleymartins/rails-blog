@@ -17,6 +17,7 @@ gem 'devise', '~> 4.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'faker', '~> 2.19'
 end
 
 group :development do
