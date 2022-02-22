@@ -6,9 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+10.times {
+    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456')
+}
 
-user = User.create(email: 'teste@teste', password: '123456', password_confirmation: '123456')
+users = User.all
 
-10.times { |index|
-    Post.create(title: "post number #{index}", body: "this is the body for the post number #{index}", user_id: user.id)
+25.times {
+    users.each { |user|
+        Post.create(title: Faker::Fantasy::Tolkien.poem, body: Faker::Quotes::Shakespeare.hamlet_quote, user_id: user.id)
+    }  
 }
