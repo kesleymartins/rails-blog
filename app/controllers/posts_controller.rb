@@ -22,31 +22,25 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
 
-    respond_to do |format|
-      if @post.save
-        redirect_to post_url(@post), notice: "Post was successfully created."
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @post.save
+      redirect_to post_url(@post), notice: "Post was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        redirect_to post_url(@post), notice: "Post was successfully updated."
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @post.update(post_params)
+      redirect_to post_url(@post), notice: "Post was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy
 
-    respond_to do |format|
-      redirect_to posts_url, notice: "Post was successfully destroyed."
-    end
+    redirect_to posts_url, notice: "Post was successfully destroyed."
   end
 
   private
