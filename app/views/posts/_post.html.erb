@@ -9,10 +9,10 @@
     </h6>
     <hr />
     <p class="card-text">
-      <% unless current_page?(posts_path) %>
-        <%= post.body %>
-      <% else %>
+      <% if current_page?(posts_path) %>
         <%= limit_body_size(post.body) %>
+      <% else %>
+        <%= post.body %>
       <% end %>
     </p>
     <%= render 'posts/post_actions', post: post %>
