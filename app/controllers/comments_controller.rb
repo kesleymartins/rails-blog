@@ -25,9 +25,9 @@ class CommentsController < ApplicationController
         @comment = @post.comments.find(params[:id])
         
         if @comment.update(comment_params) then
-            redirect_to post_path(@post), notice: "Commnet has been updated"
+            redirect_to post_url(@post), notice: "Commnet has been updated"
         else
-            redirect_to post_path(@post), alert: "Comment has not been updated"
+            redirect_to post_url(@post), alert: "Comment has not been updated"
         end
     end
 
