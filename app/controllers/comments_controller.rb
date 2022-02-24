@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     before_action :set_post
 
     def create
-        @comment = @post.comments.create(permit_params)
+        @comment = @post.comments.create(comment_params)
         @comment.user = current_user
 
         if @comment.save
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     def update
         @comment = @post.comments.find(params[:id])
         
-        if @comment.update(permit_params) then
+        if @comment.update(comment_params) then
             redirect_to post_path(@post), notice: "Commnet has been updated"
         else
             redirect_to post_path(@post), alert: "Comment has not been updated"
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
     end
 
-    def permit_params
+    def comment_params
         params.require(:comment).permit(:body)
     end
 end
