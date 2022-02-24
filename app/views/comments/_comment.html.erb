@@ -2,18 +2,13 @@
   <div class="card-body">
     <h5 class="card-title"><%= comment.user.name%></h5>
     <h6 class="card-subtitle mb-2 text-muted">
-        <small><%= comment.user.email%></small> <br />
-        <% if comment.updated_at - comment.created_at > 1 %>
-          <small>Updated <%= time_ago_in_words(comment.updated_at) %></small>
-        <% else %>
-          <small>Posted <%= time_ago_in_words(comment.created_at) %></small>
-        <% end %>
+      <%= render 'comments/comment_info', comment: comment %>
     </h6>
     <hr />
     <p class="card-text"><%= comment.body%></p>
 
     <% if current_user == comment.user %>
-        <div class="button-group float-end">
+        <div class="btn-group float-end">
             <%= button_to "delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
         </div>
     <% end %>
