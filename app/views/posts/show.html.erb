@@ -13,7 +13,7 @@
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
-      <%= render 'comments/form', post: @post, comment: @post.comments.build %>
+      <%= render 'comments/form', post: @post, comment: @post.comments.build, submit_label: "Reply" %>
     </div>
   </div>
 
