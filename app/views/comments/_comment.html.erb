@@ -5,12 +5,18 @@
       <%= render 'comments/comment_info', comment: comment %>
     </h6>
     <hr />
-    <p id="comment-body-<%= comment.id %>" class="card-text">
-      <%= comment.body%>
-    </p>
+    <div id="comment-body-<%= comment.id %>", class="card-text">
+      <%= comment.body %>
+    </div>
     <% if current_user == comment.user %>
         <div class="btn-group float-end">
-            <%= link_to 'Edit', nil, remote: true, class: 'btn btn-sm btn-warning mx-2', data: { controller: "comments", action: "comments#toggleForm" } %>
+            <%= link_to 'Edit', nil, remote: true, class: 'btn btn-sm btn-warning mx-2',
+              data: {
+                controller: "comments",
+                action: "comments#toggleForm",
+                comments_form_param: "edit-form-#{ comment.id }",
+                comments_body_param: "comment-body-#{ comment.id }"
+              } %>
             <%= button_to "Delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
         </div>
 
