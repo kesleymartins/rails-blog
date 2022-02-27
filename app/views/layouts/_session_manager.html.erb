@@ -1,6 +1,6 @@
 <% if current_user %>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="dropdown-toggle btn btn-outline-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= current_user.name %>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
@@ -11,10 +11,10 @@
         </ul>
     </li>
 <% else %>
-    <li class="nav-item">
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'%>
+   <li class="nav-item">
+        <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-light me-2'%>
     </li>
     <li class="nav-item">
-        <%= link_to 'Login', new_user_session_path, class: 'nav-link'%>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning'%>
     </li>
 <% end %>
