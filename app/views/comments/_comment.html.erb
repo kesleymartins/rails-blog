@@ -1,13 +1,6 @@
 <div id="<%= dom_id(comment) %>" class="card my-2" style="width: 80%">
   <div class="card-body row">
-    <div class="col">
-      <h5 class="card-title">
-        <%= comment.user.name %>
-      </h5>
-      <h6 class="card-subtitle mb-2 text-muted">
-        <%= render 'comments/comment_info', comment: comment %>
-      </h6>
-    </div>
+    <%= render 'comments/comment_info', comment: comment %>
     <% if current_user == comment.user %>
       <div class="col d-flex flex-row-reverse">
           <%= button_to "Delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
