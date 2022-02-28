@@ -1,18 +1,7 @@
 <div id="<%= dom_id(comment) %>" class="card my-2" style="width: 80%">
   <div class="card-body row">
     <%= render 'comments/comment_info', comment: comment %>
-    <% if current_user == comment.user %>
-      <div class="col d-flex flex-row-reverse">
-          <%= button_to "Delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
-          <%= button_to 'Edit', nil, remote: true, class: 'btn btn-sm btn-warning mx-2',
-            data: {
-              controller: "comments",
-              action: "comments#toggleForm",
-              comments_form_param: "edit-form-#{ comment.id }",
-              comments_body_param: "comment-body-#{ comment.id }"
-            } %>
-      </div>
-    <% end %>
+    <%= render 'comments/comment_actions', post: post, comment: comment %>
     <hr />
     <div id="comment-body-<%= comment.id %>", class="card-text">
       <%= comment.body %>
