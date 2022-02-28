@@ -1,0 +1,17 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <% if @pagy.prev %>
+        <li class="page-item">
+            <%= link_to "Previous Page", posts_path(page: @pagy.prev), class: "page-link" %>
+            </a>
+        </li>
+        <% end %>
+
+        <% if @pagy.next %>
+        <li class="page-item">
+            <%= link_to "Next Page", posts_path(page: @pagy.next), class: "page-link" %>
+            </a>
+        </li>
+        <% end %>
+    </ul>
+</nav>
