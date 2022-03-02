@@ -5,8 +5,8 @@
         data: {
             controller: "comments",
             action: "comments#toggleForm",
-            comments_form_param: "edit-form-#{ comment.id }",
-            comments_body_param: "comment-body-#{ comment.id }"
+            comments_form_param: "#{ dom_id(comment, :edit_form) }",
+            comments_body_param: "#{ dom_id(comment, :body) }"
         } %>
     </div>
 <% end %>
