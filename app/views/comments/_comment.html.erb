@@ -3,11 +3,11 @@
     <%= render 'comments/comment_info', comment: comment %>
     <%= render 'comments/comment_actions', post: post, comment: comment %>
     <hr />
-    <div id="comment-body-<%= comment.id %>", class="card-text">
+    <div id="<%= dom_id(comment, :body) %>", class="card-text">
       <%= comment.body %>
     </div>
     <% if current_user == comment.user %>
-      <div id= "edit-form-<%= comment.id %>" class="d-none mt-2">
+      <div id= "<%= dom_id(comment, :edit_form) %>" class="d-none mt-2">
         <%= render 'comments/form', post: @post, comment: comment, submit_label: "Update" %>
       </div>
     <% end %>
