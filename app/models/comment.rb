@@ -3,4 +3,19 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   has_rich_text :body
+
+  has_noticed_notifications model_name: 'Notification' 
+  after_create_commit :notify_recipient
+  before_destroy :cleanup_notifications
+
+  private
+
+  def notify_recipient
+    CommentNotification.with(comment: self, post: post).deliver_later(post.user)
+
+  end
+
+  def cleanup_notifications
+    notifications_as_comment.destroy_all
+  end
 end
