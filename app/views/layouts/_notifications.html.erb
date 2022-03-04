@@ -6,5 +6,20 @@
               <i class="bi bi-suit-heart-fill"></i>
             </span>
         </a>
+        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+          <% @unread.each do |notification| %>
+            <li class="dropdown-item">
+              <%= link_to notification.to_notification.message, notification.to_notification_url  %>
+            </li>
+          <% end %>
+
+          <% if @rea.count > 0 && unread.count > 0 %>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+          <% elsif @read.count + @unread.count == 0 %>
+            <p>No notifications yet</p>
+          <% end %>
+        </ul>
     </li>
 <% end %>
