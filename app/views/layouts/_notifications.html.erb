@@ -20,6 +20,12 @@
           <% elsif @read.count + @unread.count == 0 %>
             <p>No notifications yet</p>
           <% end %>
+
+          <% @read.each do |notification| %>
+            <li class="dropdown-item">
+              <%= link_to notification.to_notification.message, notification.to_notification_url  %>
+            </li>
+          <% end %>
         </ul>
     </li>
 <% end %>
