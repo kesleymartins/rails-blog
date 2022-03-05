@@ -11,7 +11,7 @@
             <%= render 'layouts/notification', notification: notification %>
           <% end %>
 
-          <% if @rea.count > 0 && unread.count > 0 %>
+          <% if @read.count > 0 && @unread.count > 0 %>
             <li>
               <hr class="dropdown-divider">
             </li>
