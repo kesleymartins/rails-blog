@@ -8,9 +8,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
           <% @unread.each do |notification| %>
-            <li class="dropdown-item">
-              <%= link_to notification.to_notification.message, notification.to_notification_url  %>
-            </li>
+            <%= render 'layouts/notification', notification: notification %>
           <% end %>
 
           <% if @rea.count > 0 && unread.count > 0 %>
@@ -22,9 +20,7 @@
           <% end %>
 
           <% @read.each do |notification| %>
-            <li class="dropdown-item">
-              <%= link_to notification.to_notification.message, notification.to_notification_url  %>
-            </li>
+            <%= render 'notification', notification: notification %>
           <% end %>
         </ul>
     </li>
