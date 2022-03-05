@@ -16,7 +16,9 @@
               <hr class="dropdown-divider">
             </li>
           <% elsif @read.count + @unread.count == 0 %>
-            <p>No notifications yet</p>
+            <li class="dropdown-item-text">
+              <p>Any notifications</p>
+            </li>
           <% end %>
 
           <% @read.each do |notification| %>
