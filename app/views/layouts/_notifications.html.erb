@@ -1,6 +1,6 @@
 <% if current_user %>
     <li class="nav-item dropdown">
-        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="badge rounded-pill bg-dark outline-light">
               <%= @unread.count >= 9 ? '9+' : @unread.count %>
               <i class="bi bi-suit-heart-fill"></i>
