@@ -1,0 +1,16 @@
+<button class="btn btn-sm btn-primary my-2 " type="button" data-bs-toggle="collapse" data-bs-target="#new-comment" aria-expanded="false" aria-controls="new-comment">
+  Make a comment?
+</button>
+<% if user_signed_in? %>
+  <div class="collapse" id="new-comment">
+    <div class="card card-body">
+      <%= render 'comments/form', post: post, comment: post.comments.build, submit_label: "Reply" %>
+    </div>
+  </div>
+<% else %>
+  <div class="collapse" id="new-comment">
+    <div class="alert alert-primary" role="alert">
+      You need to <%= link_to 'login', new_user_session_url %> or <%= link_to 'Sign Up', new_user_registration_url %> to create a comment.
+    </div>
+  </div>
+<% end %>
