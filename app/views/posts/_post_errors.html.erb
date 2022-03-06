@@ -1,0 +1,11 @@
+<% if post.errors.any? %>
+  <div>
+    <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+    <ul class="list-group">
+      <% post.errors.each do |error| %>
+        <li class="list-group-item list-group-item-danger"><%= error.full_message %></li>
+      <% end %>
+    </ul>
+    <hr />
+  </div>
+<% end %>
