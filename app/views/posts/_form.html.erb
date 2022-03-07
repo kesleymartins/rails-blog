@@ -1,5 +1,5 @@
 <%= form_with(model: post) do |form| %>
-  <%= render 'post/post_errors' %>
+  <%= render 'posts/post_errors', post: post %>
 
   <div class="mb-3">
     <%= form.label :title, class: "form-label" %>
