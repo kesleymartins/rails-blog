@@ -8,4 +8,6 @@ class Post < ApplicationRecord
 
     has_noticed_notifications model_name: 'Notification'
     has_many :notifications, through: :user, dependent: :destroy
+
+    scope :from_user, -> (user_id) { where("user_id = ?", user_id) }
 end
