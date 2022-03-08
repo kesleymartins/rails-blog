@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item" data-user-target="postsTab" data-action="click->user#toggleTab">
+    <%= link_to 'Posts', nil, remote: true, class: 'nav-link active' %>
+  </li>
+  <li class="nav-item" data-user-target="commentsTab" data-action="click->user#toggleTab">
+    <%= link_to 'Comments', nil, remote: true, class: 'nav-link' %>
+  </li>
+</ul>
