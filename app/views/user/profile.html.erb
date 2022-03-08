@@ -5,33 +5,21 @@
   <%= pluralize(@user.views, "view") %>
 </h6>
 
-<ul class="nav nav-tabs" data-controller='user'>
-  <li class="nav-item">
-    <%= link_to 'Posts', nil, remote: true, id: 'posts-tab', class: 'nav-link active',
-      data: {
-        action: 'user#togglePosts',
-        user_posts_tab_param: 'posts-tab',
-        user_comments_tab_param: 'comments-tab',
-        user_user_posts_param: 'user-posts',
-        user_user_comments_param: 'user-comments'
-      } %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 'Comments', nil, remote: true, id: 'comments-tab', class: 'nav-link',
-      data: {
-        action: 'user#toggleComments',
-        user_posts_tab_param: 'posts-tab',
-        user_comments_tab_param: 'comments-tab',
-        user_user_posts_param: 'user-posts',
-        user_user_comments_param: 'user-comments'
-      } %>
-  </li>
-</ul>
+<div data-controller="user">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" data-user-target="postsTab" data-action="click->user#toggleTab">
+      <%= link_to 'Posts', nil, remote: true, class: 'nav-link active' %>
+    </li>
+    <li class="nav-item" data-user-target="commentsTab" data-action="click->user#toggleTab">
+      <%= link_to 'Comments', nil, remote: true, class: 'nav-link' %>
+    </li>
+  </ul>
 
-<div id="user-posts">
-  <%= render 'posts/posts', posts: @posts %>
-</div>
+  <div data-user-target="userPosts">
+    <%= render 'posts/posts', posts: @posts %>
+  </div>
 
-<div id="user-comments", class="d-none">
-  <p>TODO: user comments</p>
+  <div data-user-target="userComments" class="d-none">
+    <p>TODO: user comments</p>
+  </div>
 </div>

@@ -4,50 +4,20 @@ export default class extends Controller {
   initialize() {}
   connect() {}
 
-  togglePosts(event) {
+  static targets = [ "userPosts", "userComments", "commentsTab", "postsTab" ]
+
+  toggleTab(event) {
     event.preventDefault()
-    event.stopPropagation()
 
-    const postsTabID = event.params['postsTab']
-    const commentsTabID = event.params['commentsTab']
-    const userPostsID = event.params['userPosts']
-    const userCommentsID = event.params['userComments']
+    if (event.target.classList.contains('active') == false) {
+      this.userPostsTarget.classList.toggle('d-none')
+      this.userCommentsTarget.classList.toggle('d-none')
 
-    const postsTab = document.getElementById(postsTabID)
-    const commentsTab = document.getElementById(commentsTabID)
-    const userPosts = document.getElementById(userPostsID)
-    const userComments = document.getElementById(userCommentsID)
+      const commentsTabLink = this.commentsTabTarget.querySelector('a')
+      const postsTabLink = this.postsTabTarget.querySelector('a')
 
-
-    if (commentsTab.classList.contains('active')) {
-      postsTab.classList.add('active')
-      commentsTab.classList.remove('active')
-
-      userPosts.classList.toggle('d-none')
-      userComments.classList.toggle('d-none')
-    }
-  }
-
-  toggleComments(event) {
-    event.preventDefault()
-    event.stopPropagation()
-
-    const postsTabID = event.params['postsTab']
-    const commentsTabID = event.params['commentsTab']
-    const userPostsID = event.params['userPosts']
-    const userCommentsID = event.params['userComments']
-
-    const postsTab = document.getElementById(postsTabID)
-    const commentsTab = document.getElementById(commentsTabID)
-    const userPosts = document.getElementById(userPostsID)
-    const userComments = document.getElementById(userCommentsID)
-
-    if (postsTab.classList.contains('active')) {
-      commentsTab.classList.add('active')
-      postsTab.classList.remove('active')
-
-      userPosts.classList.toggle('d-none')
-      userComments.classList.toggle('d-none')
+      commentsTabLink.classList.toggle('active')
+      postsTabLink.classList.toggle('active')
     }
   }
 }
