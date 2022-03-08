@@ -7,12 +7,5 @@
 
 <div data-controller="user">
   <%= render 'user/profile_tabs' %>
-
-  <div data-user-target="userPosts">
-    <%= render 'posts/posts', posts: @posts %>
-  </div>
-
-  <div data-user-target="userComments" class="d-none">
-    <p>TODO: user comments</p>
-  </div>
+  <%= render 'user/profile_tabs_content', posts: @posts %>
 </div>
