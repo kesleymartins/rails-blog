@@ -1,11 +1,8 @@
 <h1>Posts</h1>
 
 <div class="container">
-  <%= search_form_for @query do |f| %>
-    <%= f.label :title_cont %>
-    <%= f.search_field :title_cont %>
-
-    <%= f.submit %>
+  <%= search_form_for @query, class: 'mb-3' do |f| %>
+    <%= f.search_field :title_cont, class: 'form-control', placeholder: 'Search posts by title' %>
   <% end %>
 
   <%= render 'posts/posts', posts: @posts %>
