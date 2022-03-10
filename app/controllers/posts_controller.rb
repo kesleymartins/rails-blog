@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[ index show ]
 
   def index
-    @pagy, @posts = pagy(Post.all.latests, items: 9)
+    @query = Post.ransack(params[:q])
+    @pagy, @posts = pagy(@query.result.latests, items: 9)
   end
 
   def show
