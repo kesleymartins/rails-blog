@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "creating admin user"
+User.create(email: 'admin@user.com', name: 'kesley', password: '123456', password_confirmation: '123456').add_role(:admin)
+
 puts "creating users..."
 10.times {
-    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456')
+    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456').add_role(:author)
 }
 
 puts "creating posts..."
