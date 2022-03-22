@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   validates :name, presence: true
 
   # Include default devise modules. Others available are:
