@@ -11,7 +11,7 @@ User.create(email: 'admin@user.com', name: 'kesley', password: '123456', passwor
 
 puts "creating users..."
 10.times {
-    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456').add_role(:author)
+    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456')
 }
 
 puts "creating posts..."
