@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/index'
   root 'pages#home'
 
   get 'user/:id', to: 'user#profile', as: 'user'
