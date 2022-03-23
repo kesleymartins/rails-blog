@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'admin/index'
   root 'pages#home'
 
   get 'user/:id', to: 'user#profile', as: 'user'
   get 'about', to: 'pages#about'
+  get 'admin', to: 'admin#index'
 
   resources :posts do
     resources :comments
