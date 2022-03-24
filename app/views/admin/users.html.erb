@@ -1,1 +1,22 @@
 <%= render 'admin/nav_links' %>
+
+<table class="table">
+  <thead>
+    <th scope="col">Id</th>
+    <th scope="col">name</th>
+    <th scope="col">Posts</th>
+    <th scope="col">Comments</th>
+    <th scope="col">Is Admin? </th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <th><%= user.name %></th>
+        <td><%= pluralize(user.posts.size, "Post") %></td>
+        <td><%= pluralize(user.comments.size, "Comment") %></td>
+        <td><%= user.has_role?(:admin) ? 'Yes' : 'No' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
