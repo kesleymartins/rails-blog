@@ -12,8 +12,8 @@
       <tr>
         <th scope="row"><%= comment.id %></th>
         <th><%= comment.body %></th>
-        <td><%= link_to comment.post.title.truncate(20) %></td>
-        <td><%= link_to comment.user.name %></td>
+        <td><%= link_to comment.post.title.truncate(20), post_path(comment.post) %></td>
+        <td><%= link_to comment.user.name, user_path(comment.user) %></td>
       </tr>
     <% end %>
   </tbody>
