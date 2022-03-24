@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include Pundit::Authorization
     include Pagy::Backend
 
     before_action :set_notifications, if: :current_user
