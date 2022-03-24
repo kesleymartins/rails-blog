@@ -1,1 +1,20 @@
 <%= render 'admin/nav_links' %>
+
+<table class="table">
+  <thead>
+    <th scope="col">Id</th>
+    <th scope="col">Comment</th>
+    <th scope="col">Post</th>
+    <th scope="col">Author</th>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <th scope="row"><%= comment.id %></th>
+        <th><%= comment.body %></th>
+        <td><%= link_to comment.post.title.truncate(20) %></td>
+        <td><%= link_to comment.user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
