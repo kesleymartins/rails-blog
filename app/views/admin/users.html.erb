@@ -12,7 +12,7 @@
     <% @users.each do |user| %>
       <tr>
         <th scope="row"><%= user.id %></th>
-        <th><%= user.name %></th>
+        <th><%= link_to user.name, user_path(user) %></th>
         <td><%= pluralize(user.posts.size, "Post") %></td>
         <td><%= pluralize(user.comments.size, "Comment") %></td>
         <td><%= user.has_role?(:admin) ? 'Yes' : 'No' %></td>
