@@ -11,8 +11,8 @@
     <% @posts.each do |post| %>
       <tr>
         <th scope="row"><%= post.id %></th>
-        <th><%= link_to post.title.truncate(40) %></th>
-        <td><%= post.user.name %></td>
+        <th><%= link_to post.title.truncate(40), post_path(post) %></th>
+        <td><%= link_to post.user.name, user_path(post.user) %></td>
         <td><%= pluralize(post.comments.size, "Comment") %></td>
       </tr>
     <% end %>
