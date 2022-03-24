@@ -18,6 +18,7 @@ gem 'pagy', '~> 5.10'
 gem 'noticed', '~> 1.5', '>= 1.5.7'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'rolify', '~> 6.0'
+gem 'pundit', '~> 2.1'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
