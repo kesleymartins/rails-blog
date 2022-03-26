@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
+  before_action :authorize_action, only: %i[ edit update destroy ]
 
   def index
     @query = Post.ransack(params[:q])
@@ -47,6 +48,10 @@ class PostsController < ApplicationController
   end
 
   private
+    def authorize_action
+      authorize @post
+    end
+
     def set_post
       @post = Post.find(params[:id])
     end
