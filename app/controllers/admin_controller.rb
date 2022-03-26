@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_action
+
   def index
   end
 
@@ -12,5 +15,11 @@ class AdminController < ApplicationController
 
   def users
     @users = User.all
+  end
+
+  private
+
+  def authorize_action
+    authorize nil, policy_class: AdminPolicy
   end
 end
