@@ -5,12 +5,12 @@ class PostsController < ApplicationController
 
   def index
     @query = Post.ransack(params[:q])
-    @pagy, @posts = pagy(@query.result.latests, items: 9)
+    @pagy, @posts = pagy(@query.result.includes(:user).latests, items: 9)
   end
 
   def show
     @post.update(views: @post.views + 1)
-    @comments = @post.comments.latests
+    @comments = @post.comments.includes(:user, :rich_text_body).latests
 
     mark_notification_as_read
   end

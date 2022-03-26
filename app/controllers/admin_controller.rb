@@ -6,11 +6,11 @@ class AdminController < ApplicationController
   end
 
   def posts
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
   end
 
   def comments
-    @comments = Comment.all
+    @comments = Comment.all.includes(:user, :post, :rich_text_body)
   end
 
   def users

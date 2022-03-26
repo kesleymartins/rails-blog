@@ -3,7 +3,7 @@ class UserController < ApplicationController
 
   def profile
     @user.update(views: @user.views + 1)
-    @posts = Post.all.from_user(@user.id)
+    @posts = Post.all.includes(:user).from_user(@user.id)
   end
 
   private
