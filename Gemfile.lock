@@ -107,6 +107,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http (5.0.4)
@@ -270,6 +272,7 @@ DEPENDENCIES
   debug
   devise (~> 4.2)
   faker (~> 2.19)
+  friendly_id (~> 5.4, >= 5.4.2)
   importmap-rails
   jbuilder
   noticed (~> 1.5, >= 1.5.7)
