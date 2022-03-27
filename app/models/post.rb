@@ -1,13 +1,23 @@
 class Post < ApplicationRecord
-    validates :title, presence: true, length: { in: 3..35  }
-    validates :body, presence: true, length: { minimum: 5 }
+  extend FriendlyId
 
-    belongs_to :user
+  validates :title, presence: true, length: { in: 3..35  }
+  validates :body, presence: true, length: { minimum: 5 }
 
-    has_many :comments, dependent: :destroy
+  belongs_to :user
 
-    has_noticed_notifications model_name: 'Notification'
-    has_many :notifications, through: :user
+  has_many :comments, dependent: :destroy
 
-    scope :from_user, -> (user_id) { where("user_id = ?", user_id) }
+  has_noticed_notifications model_name: 'Notification'
+  has_many :notifications, through: :user
+
+  scope :from_user, -> (user_id) { where("user_id = ?", user_id) }
+
+  friendly_id :title, use: %i[ slugged history ]
+
+  private
+
+  def should_generate_new_friendly_id?
+    title_changed? || slug.blank?
+  end
 end
