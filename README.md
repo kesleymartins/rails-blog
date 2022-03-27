@@ -1,24 +1,18 @@
-# README
+# Rails Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Um sistema de blogs, onde é possível criar posts, fazer comentários, buscar e receber notificações quando um usuário faz comentários no seu post.
 
-Things you may want to cover:
+#### Gems utilizadas
 
-* Ruby version
+------
 
-* System dependencies
+- **Devise:** Sistema de autenticacao
+- **Pundit:** Validacao de rotas
+- **Rolify:** Sistema de cargos
+- **Ransack:** Sistema de busca
+- **Pagy:** Paginacao
+- **Noticed:** Notificacoes
+- **FriendlyId:** URL amigaveis
+- **Bullet:**  Gem para achar problemas de n+1 queries
+- **Faker:** Gerar dados falsos para o arquivo seed
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
