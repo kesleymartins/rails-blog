@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
 
-  before_create :has_author_role
+  before_create :add_author_role
 
   private
 
-  def has_author_role
+  def add_author_role
     self.add_role(:author)
   end
 end
