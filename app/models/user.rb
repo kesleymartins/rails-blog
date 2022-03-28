@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  extend FriendlyId
   validates :name, presence: true
 
   # Include default devise modules. Others available are:
@@ -13,7 +14,13 @@ class User < ApplicationRecord
 
   before_create :add_author_role
 
+  friendly_id :name, use: %i[ slugged history ]
+
   private
+
+  def should_generate_new_friendly_id?
+    name_changed? || slug.blank?
+  end
 
   def add_author_role
     self.add_role(:author)
