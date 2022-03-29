@@ -4,7 +4,7 @@
   </h5>
   <div class="card-body">
     <h6 class="card-title">
-        <small>created by: <%= link_to post.user.name, user_path(post.user.id) %></small><br />
+        <small>created by: <%= link_to post.user.name, user_path(post.user) %></small><br />
         <small><%= pluralize(post.views, 'view')%></small>
     </h6>
     <hr />
