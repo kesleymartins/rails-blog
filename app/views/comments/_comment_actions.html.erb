@@ -1,13 +1,19 @@
 <% if current_user == comment.user %>
     <div class="col d-flex align-items-center flex-row-reverse">
-        <%= button_to "Delete", [post, comment], class: "btn btn-sm btn-danger", method: :delete %>
-        <%= link_to 'Edit', nil, remote: true, id: "#{ dom_id(comment, :edit_btn) }", class: 'btn btn-sm btn-warning mx-2',
+        <%= button_to [post, comment], class: "btn btn-sm btn-danger", method: :delete do %>
+          <i class="bi bi-trash3"></i>
+          Delete
+        <% end %>
+        <%= link_to nil, remote: true, id: "#{ dom_id(comment, :edit_btn) }", class: 'btn btn-sm btn-warning mx-2',
           data: {
               controller: "comments",
               action: "comments#toggleForm",
               comments_form_param: "#{ dom_id(comment, :edit_form) }",
               comments_body_param: "#{ dom_id(comment, :body) }",
               comments_edit_btn_param: "#{ dom_id(comment, :edit_btn) }"
-          } %>
+          } do %>
+            <i class="bi bi-pencil-square"></i>
+            Edit
+          <% end %>
     </div>
 <% end %>
