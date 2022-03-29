@@ -1,7 +1,8 @@
 <% if current_user %>
     <li class="nav-item dropdown">
         <a class="dropdown-toggle btn btn-outline-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= current_user.name %>
+          <i class="bi bi-person-circle"></i>
+          <%= current_user.name %>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <% if current_user.has_role?(:admin) %>
