@@ -18,8 +18,5 @@ puts "creating posts..."
 25.times {
     User.all.each { |user|
         Post.create!(title: Faker::Book.title, body: Faker::Books::Lovecraft.sentence(word_count: 22), user: user)
-
-
-
     }
 }
