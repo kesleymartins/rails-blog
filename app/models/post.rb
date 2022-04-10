@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   extend FriendlyId
 
-  validates :title, presence: true, length: { in: 3..35  }
+  validates :title, presence: true, length: { in: 3..144 }
   validates :body, presence: true, length: { minimum: 5 }
 
   belongs_to :user
