@@ -102,6 +102,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.5)
@@ -289,6 +291,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.2)
+  factory_bot (~> 6.1)
   faker (~> 2.19)
   friendly_id (~> 5.4, >= 5.4.2)
   importmap-rails
