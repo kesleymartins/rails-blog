@@ -7,16 +7,19 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "creating admin user"
-User.create(email: 'admin@user.com', name: 'kesley', password: '123456', password_confirmation: '123456').add_role(:admin)
+User.create!(email: 'admin@user.com', name: Faker::Name.name, password: '123456', password_confirmation: '123456').add_role(:admin)
 
 puts "creating users..."
 10.times {
-    User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456')
+    User.create!(email: Faker::Internet.email, name: Faker::Name.name, password: '123456', password_confirmation: '123456')
 }
 
 puts "creating posts..."
 25.times {
     User.all.each { |user|
-        Post.create(title: Faker::Fantasy::Tolkien.poem, body: Faker::Quotes::Shakespeare.hamlet_quote, user_id: user.id)
+        Post.create!(title: Faker::Book.title, body: Faker::Books::Lovecraft.sentence(word_count: 22), user: user)
+
+
+
     }
 }
