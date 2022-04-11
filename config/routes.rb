@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'posts#index'
 
   get 'user/:id', to: 'user#profile', as: 'user'
   get 'about', to: 'pages#about'

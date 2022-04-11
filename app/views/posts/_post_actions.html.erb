@@ -1,5 +1,5 @@
 <div class="d-flex flex-row justify-content-end">
-  <% if current_page?(posts_path) or current_page?(user_path) %>
+  <% if current_page?(root_path) or current_page?(user_path) %>
     <%= link_to "Read more", post, class: 'btn btn-sm btn-secondary mx-1' %>
   <% else %>
     <% if current_user == post.user %>
