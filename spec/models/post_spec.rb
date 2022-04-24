@@ -16,17 +16,9 @@ RSpec.describe Post, type: :model do
   end
 
   context 'relations' do
-    it 'belongs to user' do
-      should belong_to(:user)
-    end
-
-    it 'has many comments' do
-      should have_many(:comments)
-    end
-
-    it 'has many notifications' do
-      should have_many(:notifications)
-    end
+    it { should belong_to(:user) }
+    it { should have_many(:comments) }
+    it { should have_many(:notifications) }
   end
 
   context 'validate presence of' do
