@@ -1,4 +1,4 @@
-# Rails Blog
+# Rails Blog (Arquivado)
 
 Um sistema de blogs, onde é possível criar posts, fazer comentários, buscar e receber notificações quando um usuário faz comentários no seu post.
 
